@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace TaskFebruary_11
 {
@@ -6,17 +6,20 @@ namespace TaskFebruary_11
     {
         static void Main(string[] args)
         {
-           
             int Length;
             string LengthStr;
-            do
-            {
-                Console.WriteLine("Enter the number of books : ");
-                LengthStr = Console.ReadLine();
-                Length = Convert.ToInt32(LengthStr);
-                
+            Console.WriteLine("Enter the number of book :");
+            LengthStr = Console.ReadLine();
 
-            } while (Length <0);
+            while (CheckInput(LengthStr) != true)
+            {
+                Console.WriteLine("Enter Correctly :");
+                LengthStr = Console.ReadLine();
+
+            }
+
+            Length = Convert.ToInt32(LengthStr);
+
 
 
 
@@ -173,11 +176,35 @@ namespace TaskFebruary_11
                 }
                 return NewFilteredBook;
             }
+            static bool CheckInput(string input)
+            {
+                char[] Array = { '1', '2', '3', '4', '5', '6', '7', '8', '9','0' };
+                int count = 0;
+
+                for (int i = 0; i < input.Length; i++)
+                {
+                    for (int j = 0; j < Array.Length; j++)
+                    {
+                        
+                        if (input[i] == Array[j])
+                        {
+                            count++;
+                        }
+
+                    }
+                }
+                if (count == input.Length)
+                {
+                    return true;
+                }
+
+                else
+                    return false;
+            }
 
 
 
-
-                static int GetInputID(string name, int min, int max)
+            static int GetInputID(string name, int min, int max)
             {
                 int Input;
                 string inputStr;
