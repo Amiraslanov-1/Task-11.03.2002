@@ -109,6 +109,7 @@ namespace TaskFebruary_11
                         Console.WriteLine(books[i].GetInfo());
                         Console.WriteLine("--------------------------------------------------------------------------------");
                     }
+                    continue;
                 }
 
                 else if  (count==0)
